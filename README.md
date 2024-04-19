@@ -86,3 +86,5 @@ spring:
   session:
     store-type: redis
 ```
+## 构建步骤
+https://www.yuque.com/u22733302/zu8791/igvf7ggdlhgmf7tp?singleDoc# 《springboot-init》
