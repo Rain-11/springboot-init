@@ -1,34 +1,30 @@
-package com.yupi.springbootinit.constant;
+package com.crazy.rain.constant;
 
 /**
  * 用户常量
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
-public interface UserConstant {
+public final class UserConstant {
+    private UserConstant() {
+    }
 
     /**
      * 用户登录态键
      */
-    String USER_LOGIN_STATE = "user_login";
-
-    //  region 权限
+    public static final String USER_LOGIN_STATE = "user_login";
 
     /**
      * 默认角色
      */
-    String DEFAULT_ROLE = "user";
+    public static final String DEFAULT_ROLE = "user";
 
     /**
      * 管理员角色
      */
-    String ADMIN_ROLE = "admin";
+    public static final String ADMIN_ROLE = "admin";
 
     /**
      * 被封号
      */
-    String BAN_ROLE = "ban";
+    public static final String BAN_ROLE = "ban";
 
-    // endregion
 }

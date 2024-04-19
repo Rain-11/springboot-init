@@ -1,13 +1,13 @@
-package com.yupi.springbootinit.exception;
+package com.crazy.rain.exception;
 
-import com.yupi.springbootinit.common.ErrorCode;
+
+import com.crazy.rain.common.ErrorCode;
+import lombok.Getter;
 
 /**
- * 自定义异常类
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * 自定义一场基类
  */
+@Getter
 public class BusinessException extends RuntimeException {
 
     /**
@@ -30,7 +30,4 @@ public class BusinessException extends RuntimeException {
         this.code = errorCode.getCode();
     }
 
-    public int getCode() {
-        return code;
-    }
 }

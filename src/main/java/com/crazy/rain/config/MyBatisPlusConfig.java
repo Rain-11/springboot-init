@@ -1,4 +1,4 @@
-package com.yupi.springbootinit.config;
+package com.crazy.rain.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -9,17 +9,13 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * MyBatis Plus 配置
- *
- * @author https://github.com/liyupi
  */
 @Configuration
-@MapperScan("com.yupi.springbootinit.mapper")
+@MapperScan("com.crazy.rain.mapper")
 public class MyBatisPlusConfig {
 
     /**
      * 拦截器配置
-     *
-     * @return
      */
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {

@@ -1,20 +1,11 @@
-package com.yupi.springbootinit.model.entity;
+package com.crazy.rain.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
-/**
- * 用户
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
- */
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 @TableName(value = "user")
 @Data
 public class User implements Serializable {
@@ -34,16 +25,6 @@ public class User implements Serializable {
      * 用户密码
      */
     private String userPassword;
-
-    /**
-     * 开放平台id
-     */
-    private String unionId;
-
-    /**
-     * 公众号openId
-     */
-    private String mpOpenId;
 
     /**
      * 用户昵称
@@ -68,12 +49,14 @@ public class User implements Serializable {
     /**
      * 创建时间
      */
-    private Date createTime;
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
 
     /**
      * 是否删除

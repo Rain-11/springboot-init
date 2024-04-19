@@ -1,17 +1,15 @@
-package com.yupi.springbootinit.exception;
+package com.crazy.rain.exception;
 
-import com.yupi.springbootinit.common.BaseResponse;
-import com.yupi.springbootinit.common.ErrorCode;
-import com.yupi.springbootinit.common.ResultUtils;
+
+import com.crazy.rain.common.BaseResponse;
+import com.crazy.rain.common.ErrorCode;
+import com.crazy.rain.common.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * 全局异常处理器
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * 全局一场处理器
  */
 @RestControllerAdvice
 @Slf4j

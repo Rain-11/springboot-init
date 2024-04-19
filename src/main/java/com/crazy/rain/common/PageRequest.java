@@ -1,13 +1,12 @@
-package com.yupi.springbootinit.common;
+package com.crazy.rain.common;
 
-import com.yupi.springbootinit.constant.CommonConstant;
+import com.crazy.rain.constant.CommonConstant;
 import lombok.Data;
 
 /**
- * 分页请求
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @ClassName: PageRequest
+ * @Description: 分页请求
+ * @author: CrazyRain
  */
 @Data
 public class PageRequest {

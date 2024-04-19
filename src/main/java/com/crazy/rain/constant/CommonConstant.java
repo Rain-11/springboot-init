@@ -1,21 +1,21 @@
-package com.yupi.springbootinit.constant;
+package com.crazy.rain.constant;
 
 /**
  * 通用常量
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
-public interface CommonConstant {
+public final class CommonConstant {
+
+    private CommonConstant() {
+    }
 
     /**
      * 升序
      */
-    String SORT_ORDER_ASC = "ascend";
+    public static final String SORT_ORDER_ASC = "ascend";
 
     /**
      * 降序
      */
-    String SORT_ORDER_DESC = " descend";
-    
+    public static final String SORT_ORDER_DESC = " descend";
+
 }

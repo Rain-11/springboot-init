@@ -1,19 +1,17 @@
-package com.yupi.springbootinit.common;
+package com.crazy.rain.common;
 
 /**
- * 返回工具类
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @ClassName: ResultUtils
+ * @Description: 返回工具类
+ * @author: CrazyRain
  */
 public class ResultUtils {
 
+    private ResultUtils() {
+    }
+
     /**
      * 成功
-     *
-     * @param data
-     * @param <T>
-     * @return
      */
     public static <T> BaseResponse<T> success(T data) {
         return new BaseResponse<>(0, data, "ok");
@@ -21,32 +19,22 @@ public class ResultUtils {
 
     /**
      * 失败
-     *
-     * @param errorCode
-     * @return
      */
-    public static BaseResponse error(ErrorCode errorCode) {
+    public static BaseResponse<Void> error(ErrorCode errorCode) {
         return new BaseResponse<>(errorCode);
     }
 
     /**
      * 失败
-     *
-     * @param code
-     * @param message
-     * @return
      */
-    public static BaseResponse error(int code, String message) {
-        return new BaseResponse(code, null, message);
+    public static BaseResponse<Void> error(int code, String message) {
+        return new BaseResponse<>(code, null, message);
     }
 
     /**
      * 失败
-     *
-     * @param errorCode
-     * @return
      */
-    public static BaseResponse error(ErrorCode errorCode, String message) {
-        return new BaseResponse(errorCode.getCode(), null, message);
+    public static BaseResponse<Void> error(ErrorCode errorCode, String message) {
+        return new BaseResponse<>(errorCode.getCode(), null, message);
     }
 }

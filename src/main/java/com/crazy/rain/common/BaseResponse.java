@@ -1,14 +1,13 @@
-package com.yupi.springbootinit.common;
+package com.crazy.rain.common;
 
-import java.io.Serializable;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
- * 通用返回类
- *
- * @param <T>
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @ClassName: BaseResponse
+ * @Description: 通用返回结果
+ * @author: CrazyRain
  */
 @Data
 public class BaseResponse<T> implements Serializable {
