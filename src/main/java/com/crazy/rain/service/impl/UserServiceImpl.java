@@ -43,7 +43,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      */
     public static final String SALT = "CrazyRain";
     private static final String DEFAULT_PASSWORD = "12345678";
-    private final UserInfoUtil userInfoUtil;
     private final UserConverter userConverter;
 
     @Override
@@ -179,14 +178,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public void updateMyUser(UserUpdateMyRequest userUpdateMyRequest) {
         User user = userConverter.userUpdateMyRequestConverter(userUpdateMyRequest);
-        user.setId(userInfoUtil.getUserInfo().getId());
+        user.setId(UserInfoUtil.getUserInfo().getId());
         boolean result = this.updateById(user);
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
     }
 
     @Override
     public LoginUserVO getLoginUser() {
-        return getLoginUserVO(userInfoUtil.getUserInfo());
+        return getLoginUserVO(UserInfoUtil.getUserInfo());
     }
 
     @Override

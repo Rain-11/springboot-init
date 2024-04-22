@@ -12,8 +12,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-
 /**
  * @ClassName: AuthInterceptor
  * @Description: 权限校验
@@ -24,8 +22,6 @@ import javax.annotation.Resource;
 @Component
 public class AuthInterceptor {
 
-    @Resource
-    private UserInfoUtil userInfoUtil;
 
     /**
      * 执行拦截
@@ -34,7 +30,7 @@ public class AuthInterceptor {
     public Object doInterceptor(ProceedingJoinPoint joinPoint, AuthCheck authCheck) throws Throwable {
         String mustRole = authCheck.mustRole();
         // 当前登录用户
-        User loginUser = userInfoUtil.getUserInfo();
+        User loginUser = UserInfoUtil.getUserInfo();
         // 必须有该权限才通过
         if (StringUtils.isNotBlank(mustRole)) {
             UserRoleEnum mustUserRoleEnum = UserRoleEnum.getEnumByValue(mustRole);

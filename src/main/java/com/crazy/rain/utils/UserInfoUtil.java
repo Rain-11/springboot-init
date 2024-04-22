@@ -4,8 +4,10 @@ import com.crazy.rain.common.ErrorCode;
 import com.crazy.rain.exception.BusinessException;
 import com.crazy.rain.model.entity.User;
 import com.crazy.rain.model.enums.UserRoleEnum;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,23 +19,24 @@ import static com.crazy.rain.constant.UserConstant.USER_LOGIN_STATE;
  * @author: CrazyRain
  * @date: 2024/4/18 下午9:20
  */
-@Component
-@AllArgsConstructor
+@Slf4j
 public class UserInfoUtil {
+    private UserInfoUtil() {
+    }
 
-    private final HttpServletRequest request;
+    private static final RequestAttributes requestAttributes = RequestContextHolder.currentRequestAttributes();
+    private static final HttpServletRequest request = ((ServletRequestAttributes) requestAttributes).getRequest();
 
-    public User getUserInfo() {
+    public static User getUserInfo() {
         // 先判断是否已登录
-        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
-        User currentUser = (User) userObj;
+        User currentUser = (User) request.getSession().getAttribute(USER_LOGIN_STATE);
         if (currentUser == null || currentUser.getId() == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
         return currentUser;
     }
 
-    public User getLoginUserPermitNull() {
+    public static User getLoginUserPermitNull() {
         // 先判断是否已登录
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User) userObj;
@@ -43,11 +46,11 @@ public class UserInfoUtil {
         return currentUser;
     }
 
-    public boolean isAdmin() {
+    public static boolean isAdmin() {
         return isAdmin(getUserInfo());
     }
 
-    public boolean isAdmin(User user) {
+    public static boolean isAdmin(User user) {
         return user != null && UserRoleEnum.ADMIN.getValue().equals(user.getUserRole());
     }
 }
