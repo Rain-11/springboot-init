@@ -19,7 +19,7 @@ public class User implements Serializable {
     /**
      * 用户账号
      */
-    private String userAccount;
+    private String email;
 
     /**
      * 用户密码
