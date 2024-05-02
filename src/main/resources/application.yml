@@ -18,12 +18,12 @@ knife4j:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.142.133:3306/springboot_init
+    url: jdbc:mysql://localhost:3306/ApexLink
     username: root
     password: 123456
   redis:
     database: 1
-    host: 192.168.142.133
+    host: localhost
     port: 6379
     timeout: 5000
     password: 123456
@@ -40,7 +40,7 @@ spring:
       max-file-size: 10MB
 server:
   address: 0.0.0.0
-  port: 8080
+  port: 9600
   servlet:
     # cookie 30 天过期
     session:

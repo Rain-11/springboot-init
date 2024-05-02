@@ -7,6 +7,8 @@ public final class UserConstant {
     private UserConstant() {
     }
 
+    public static final String REQUEST_PARAMETER_IS_EMPTY = "请求参数为空";
+
     /**
      * 用户登录态键
      */

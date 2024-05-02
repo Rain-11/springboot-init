@@ -1,13 +1,20 @@
 package com.crazy.rain.common;
 
 /**
- * @ClassName: ResultUtils
+ * @ClassName: ResultUtil
  * @Description: 返回工具类
  * @author: CrazyRain
  */
-public class ResultUtils {
+public class ResultUtil {
 
-    private ResultUtils() {
+    private ResultUtil() {
+    }
+
+    /**
+     * 成功
+     */
+    public static <T> BaseResponse<T> success() {
+        return new BaseResponse<>(0, null, "ok");
     }
 
     /**

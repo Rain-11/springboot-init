@@ -6,18 +6,21 @@
     <resultMap id="BaseResultMap" type="com.crazy.rain.model.entity.User">
         <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="userName" column="user_name" jdbcType="VARCHAR"/>
-        <result property="email" column="email" jdbcType="VARCHAR"/>
         <result property="userAvatar" column="user_avatar" jdbcType="VARCHAR"/>
         <result property="userProfile" column="user_profile" jdbcType="VARCHAR"/>
+        <result property="secretId" column="secret_id" jdbcType="VARCHAR"/>
+        <result property="secretKey" column="secret_key" jdbcType="VARCHAR"/>
         <result property="userRole" column="user_role" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="wallet" column="wallet"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,
-        user_name,user_avatar,user_profile,email
+        id,email,
+        user_name,user_avatar,user_profile,
         user_role,create_time,update_time,is_delete
     </sql>
 </mapper>

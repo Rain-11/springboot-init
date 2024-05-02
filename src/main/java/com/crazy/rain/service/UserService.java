@@ -3,6 +3,7 @@ package com.crazy.rain.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.crazy.rain.model.dto.user.ForgotPasswordDto;
 import com.crazy.rain.model.dto.user.UserAddRequest;
 import com.crazy.rain.model.dto.user.UserQueryRequest;
 import com.crazy.rain.model.dto.user.UserUpdateMyRequest;
@@ -19,21 +20,21 @@ public interface UserService extends IService<User> {
     /**
      * 用户注册
      *
-     * @param userAccount   用户账户
-     * @param userPassword  用户密码
-     * @param checkPassword 校验密码
+     * @param email            用户邮箱
+     * @param userPassword     用户密码
+     * @param verificationCode 验证码
      * @return 新用户 id
      */
-    long userRegister(String userAccount, String userPassword, String checkPassword);
+    long userRegister(String email, String userPassword, String verificationCode);
 
     /**
      * 用户登录
      *
-     * @param userAccount  用户账户
-     * @param userPassword 用户密码
+     * @param email            用户账户
+     * @param userPassword     用户密码
      * @return 脱敏后的用户信息
      */
-    LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request);
+    LoginUserVO userLogin(String email, String userPassword, HttpServletRequest request);
 
 
     /**
@@ -73,7 +74,23 @@ public interface UserService extends IService<User> {
 
     /**
      * 创建用户
+     *
      * @param userAddRequest 添加用户参数
      */
     Long addUser(UserAddRequest userAddRequest);
+
+    /**
+     * 发送邮箱验证码
+     *
+     * @param email 邮箱
+     * @return 验证码
+     */
+    Integer sendVerificationCode(String email);
+
+    /**
+     * 忘记密码
+     * @param forgotPasswordDto 修改密码表单
+     */
+    void ForgotPasswordDto(ForgotPasswordDto forgotPasswordDto);
+
 }

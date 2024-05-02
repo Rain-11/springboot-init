@@ -13,13 +13,8 @@ public class User implements Serializable {
     /**
      * id
      */
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.AUTO)
     private Long id;
-
-    /**
-     * 用户账号
-     */
-    private String email;
 
     /**
      * 用户密码
@@ -35,16 +30,37 @@ public class User implements Serializable {
      * 用户头像
      */
     private String userAvatar;
+    /**
+     * 用户邮箱
+     */
+    private String email;
 
     /**
      * 用户简介
      */
     private String userProfile;
 
+
+    /**
+     * 签名秘钥
+     */
+    private String secretKey;
+
+
+    /**
+     * 签名id
+     */
+    private String secretId;
+
     /**
      * 用户角色：user/admin/ban
      */
     private String userRole;
+
+    /**
+     * 钱包金额
+     */
+    private Integer wallet;
 
     /**
      * 创建时间
